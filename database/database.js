@@ -1,4 +1,6 @@
 const mongoose = require("mongoose")
+const User = require("../model/userModel")
+const adminSeeder = require("../adminSeeder")
 
 
 exports.connectDatabase = async()=>{
@@ -6,4 +8,8 @@ exports.connectDatabase = async()=>{
 // jaba samma database sanga connect hudainw wait gar
  await mongoose.connect(process.env.MONGO_URI)
  console.log("Database connected successfully")
+
+ // admin seeding
+ adminSeeder()
+ 
 }
