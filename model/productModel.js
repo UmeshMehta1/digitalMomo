@@ -22,8 +22,12 @@ const productSchema= new Schema({
     productStatus:{
         type:String,
         enum:["available","unavailable"]
-    }
-})
+    },
+    productImage:String
+},{
+    timestamps: true  //this will create createdAt and updatedAt field automatically
+});
+
 
 const Product = mongoose.model("Product", productSchema)
 module.exports=Product

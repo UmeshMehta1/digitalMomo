@@ -13,6 +13,9 @@ require("dotenv").config()
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 
+
+//telling node.js to give accesss to uploads folder
+app.use(express.static("./uploads"))
 //DATABASE CONNECTION
 connectDatabase()
 

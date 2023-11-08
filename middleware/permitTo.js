@@ -1,4 +1,4 @@
-const restrictTo=(...roles)=>{
+const permitTo=(...roles)=>{
     return (req,res,next)=>{
         const userRole=req.user.role
         console.log(userRole)
@@ -15,4 +15,4 @@ const restrictTo=(...roles)=>{
     
 }
 
-module.exports= restrictTo
+module.exports= permitTo
