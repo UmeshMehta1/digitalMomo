@@ -5,13 +5,15 @@ const sendEmail = require("../../services/sendEmail")
 
 exports.registerUser=async(req,res)=>{
     const {email,password,phoneNumber,username} = req.body
-    if(!email || !password || !phoneNumber || !username){
+    console.log(email,password,phoneNumber,username);
+    if(!email||!password||!phoneNumber||!username){
        return res.status(400).json({
             message : "Please provide email,password,phoneNumber"
         })
     }
+
     // check if that email user already exist or not
-   const userFound =  await User.find({userEmail : email})
+   const userFound =  await User.find({userEmail:email})
     if(userFound.length > 0 ){
         return res.status(400).json({
             message : "User with that email already registered"
@@ -20,9 +22,9 @@ exports.registerUser=async(req,res)=>{
 
     // else 
     await User.create({
-        userName : username,
-        userPhoneNumber : phoneNumber,
-        userEmail : email,
+        userName:username,
+        userPhoneNumber:phoneNumber,
+        userEmail:email,
         userPassword : bcrypt.hashSync(password,10)
     })
 
@@ -143,8 +145,8 @@ exports.resetPassword= async(req,res)=>{
         return  res.status(400).json({
             message: "New password and Confirm Password do not match"
         })
-      
     }
+    
  const userExists= await User.find({userEmail:email})
  if(userExists.length==0){
     return res.status(404).json({
