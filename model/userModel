@@ -6,14 +6,17 @@ const userSchema  =  new Schema({
         type : String,
         required : [true,'userEmail must be provided']
     },
+    
     userPhoneNumber : {
         type : Number,
         required : [true,"PhoneNumber must be provided"]
     },
+
     userName : {
         type : String,
         required  : [true,"UserName must be provided"]
     },
+
     userPassword : {
         type : String,
         required : [true,"Password must be provided"]
